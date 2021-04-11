@@ -14,7 +14,7 @@ class CreateBookingsTable extends Migration
     public function up()
     {
         Schema::create('bookings', function (Blueprint $table) {
-            $table->integer('id');
+            $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->integer('line_station_id')->unsigned();
             $table->integer('seat_code')->unsigned();

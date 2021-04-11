@@ -23,4 +23,9 @@ class LineStationRepository
         return $this->lineStation::where('id',$id)->get()->toArray();
     }
 
+    public function getByColumn(array $where){
+        return $this->lineStation::where($where)->get()->toArray();
+
+    }
+
 }

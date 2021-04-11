@@ -21,7 +21,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //    Route::resource('/bus-booking', 'BookingController');
 //});
 
-//Route::resource('/bus-booking', 'App\Http\Controllers\Api\BookingController');
-Route::resource('/bus-booking/available-seats', 'App\Http\Controllers\Api\LinesController');
-
+Route::resource('/bus-booking', 'App\Http\Controllers\Api\BookingController');
 Route::Post('/bus-booking/available-seats/','App\Http\Controllers\Api\LinesController@show');

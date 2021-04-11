@@ -18,5 +18,10 @@ class LinesStationsService
     public function getById($id){
         return $this->lineStationsRepository->getById($id)[0];
     }
+    public function getByColumn(array $where){
+        return $this->lineStationsRepository->getByColumn($where);
+        
+
+    }
 
 }

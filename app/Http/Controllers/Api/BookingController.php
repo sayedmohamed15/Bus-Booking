@@ -4,19 +4,25 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Services\BookService;
 
 class BookingController extends Controller
+
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+    protected $bookService;
+
+    public function __construct(BookService $bookService){
+        $this->bookService = $bookService;
+
+    }
     public function index()
     {
         //
-        echo "sayed";
-        die;
     }
 
     /**
@@ -37,7 +43,25 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->only([
+            'user_id',
+            'line_station_id',
+            'seat_code',
+        ]);
+        $result = ['status'=>200];
+        try {
+           $result['data'] = $this->bookService->saveBookingData($data);
+
+
+        }catch (Exception $e){
+            $result=[
+                'status'=>500,
+                'message'=>$e->getMessage(),
+            ];
+
+        }
+        return response()->json($result,$result['status']);
+
     }
 
     /**

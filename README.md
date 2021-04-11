@@ -1,6 +1,7 @@
 Important Note :
 
-i used a Post Request to get available seats insted of Get Request to more security 
+ - i used a Post Request to get available seats insted of Get Request to more security 
+ - i used a repository pattern for part of this project.
 
 
 
